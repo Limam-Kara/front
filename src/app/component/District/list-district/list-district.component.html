@@ -1,0 +1,74 @@
+<div class="card mt-5">
+  <div class="card-header bg-dark">
+    <h2 class="text-white">Districts List</h2>
+  </div>
+  <div class="card-body">
+    <div class="row mb-3 d-flex justify-content-between">
+      <div class="col-md-5">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            name="search"
+            [(ngModel)]="searchText"
+            (input)="searchDistricts()"
+            placeholder="Search by ID or name"
+          >
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-primary" (click)="goToAddDistrictPage()">
+          <i class="bi bi-plus-circle"></i> Add District
+        </button>
+      </div>
+    </div>
+    <table class="table table-hover align-middle text-nowrap table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let district of filteredDistricts">
+          <td>{{ district.id }}</td>
+          <td>{{ district.nom }}</td>
+          <td>
+            <button (click)="updateDistrict(district.id)" class="btn btn-info btn-sm mx-3">
+              <i class="bi bi-pencil-square"></i> Update
+            </button>
+            <button (click)="setDistrictToDeleteId(district.id)" data-bs-toggle="modal" data-bs-target="#ST" class="btn btn-danger btn-sm mx-3">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+            <button (click)="districtDetails(district.id)" class="btn btn-success btn-sm mx-3">
+              <i class="bi bi-eye"></i> View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="ST" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Supprimer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer cette district ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

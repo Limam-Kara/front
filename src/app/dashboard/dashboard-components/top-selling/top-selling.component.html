@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group mb-3">
+          <label for="district" class="card-subtitle">District</label>
+          <select class="form-select" [(ngModel)]="selectedDistrictId" name="district" (change)="onDistrictChange()">
+            <option *ngFor="let district of districts" [value]="district.id">{{ district.nom }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mb-3" *ngIf="selectedAnnexes.length > 0">
+          <label for="annexes" class="card-subtitle">Annexes</label>
+          <select class="form-select" [(ngModel)]="selectedAnnexeId" name="annexes" (change)="onAnnexeChange()">
+            <option *ngFor="let annexe of selectedAnnexes" [value]="annexe.id">{{ annexe.nom }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mb-3" *ngIf="selectedAnnexes.length > 0">
+          <label for="Categories" class="card-subtitle">Categories</label>
+          <select class="form-select" [(ngModel)]="selectedCategorieId" name="Categories" (change)="onCategorieChange()">
+            <option *ngFor="let categorie of categories" [value]="categorie.id">{{ categorie.nom }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <div id="map" style="height: 400px;"></div>
+    </div>
+  </div>
+</div>

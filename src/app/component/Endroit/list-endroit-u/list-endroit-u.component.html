@@ -1,0 +1,83 @@
+<div class="card mt-5">
+  <div class="card-header bg-dark">
+    <h2 class="text-white">Endroit liste</h2>
+  </div>
+  <div class="card-body">
+    <div class="row mb-3 d-flex justify-content-between">
+      <div class="col-md-5">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            name="search"
+            [(ngModel)]="searchText"
+            (input)="searchEndroits()"
+            placeholder="Search by ID or name"
+          >
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-primary" (click)="goToAddEndroitPage()">
+          <i class="bi bi-plus-circle"></i> Add Endroit
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle text-nowrap table-bordered">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>nom</th>
+            <th>latitude</th>
+            <th>longitude</th>
+            <th>district</th>
+            <th>categorie</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let endroit of endroits">
+            <td>{{endroit.id}}</td>
+            <td>{{endroit.nom}}</td>
+            <td>{{endroit.latitude}}</td>
+            <td>{{endroit.longitude}}</td>
+            <td>{{endroit.district.nom}}</td>
+            <td>{{endroit.categorie.nom}}</td>
+            <td>
+              <button (click)="updateEndroit(endroit.id)" class="btn btn-info btn-sm mx-3">
+                <i class="bi bi-pencil-square"></i> Update
+              </button>
+              <button (click)="setAnnexeToDeleteId(endroit.id)" data-bs-toggle="modal" data-bs-target="#ST" class="btn btn-danger btn-sm mx-3">
+                <i class="bi bi-trash"></i> Delete
+              </button>
+              <button (click)="endroitDetails(endroit.id)" class="btn btn-success btn-sm mx-3">
+                <i class="bi bi-eye"></i> View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ST" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Supprimer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer cette endroit ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

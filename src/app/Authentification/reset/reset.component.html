@@ -1,0 +1,33 @@
+<div class="container-fluid ps-md-0">
+  <div class="row g-0 justify-content-center align-items-center bg-dark">
+    <div class="col-md-4 col-lg-4">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container bg-white p-3 shadow rounded">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a href="#">
+                <img src="../../../assets/images/logos/MJ-Maroc.png" width="150" alt="Logo" class="mb-4">
+              </a>
+              <h3 class="login-heading mb-4">Réinitialiser le mot de passe !</h3>
+            </div>
+            <div class="col-md-12">
+              <form #resetForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password" [(ngModel)]="password" required>
+                  <label for="password">Mot de passe</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="passwordConfirmer" placeholder="Confirmer Mot de passe" name="passwordConfirmer" [(ngModel)]="passwordConfirmer" required>
+                  <label for="passwordConfirmer">Confirmer Mot de passe</label>
+                </div>
+                <div class="d-grid mb-2">
+                  <button type="submit" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2">ENVOYER</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

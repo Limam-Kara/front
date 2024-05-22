@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="card mt-5">
+    <div class="card-header bg-dark">
+      <h2 class="text-white">Create Annexe</h2>
+    </div>
+    <div class="card-body">
+      <div class="form-group mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" [(ngModel)]="annexe.nom" name="nom" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="adresse" class="form-label">Adresse</label>
+        <input type="text" class="form-control" id="adresse" [(ngModel)]="annexe.adresse" name="adresse" required>
+      </div>
+      <div class="form-group ">
+        <label for="district" class="form-label">District</label>
+        <select class="form-select" id="district" [(ngModel)]="annexe.district.id" name="district" required>
+          <option *ngFor="let district of districts" [value]="district.id">{{ district.nom }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="card-footer border-top d-flex bg-white py-3">
+      <button type="submit" class="btn btn-success">Enregistrer</button>
+      <button type="button" class="btn btn-danger mx-4" (click)="goToAnnexeList()">Retourner</button>
+    </div>
+  </div>
+</form>

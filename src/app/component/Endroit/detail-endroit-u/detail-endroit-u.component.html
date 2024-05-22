@@ -1,0 +1,58 @@
+<div class="card mt-5">
+  <div class="card-header bg-dark">
+    <h2 class="text-white">Detail Endroit</h2>
+  </div>
+  <div class="card-body">
+    <!-- <div class="row mb-3 d-flex justify-content-between">
+      <div class="col-md-5">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            name="search"
+            [(ngModel)]="searchText"
+            (input)="searchEndroits()"
+            placeholder="Search by ID or name"
+          >
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-primary" (click)="goToAddEndroitPage()">Add Endroit</button>
+      </div>
+    </div> -->
+    <div class="table-responsive">
+      <table class="table table-hover align-middle text-nowrap table-bordered">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>nom</th>
+            <th>latitude</th>
+            <th>longitude</th>
+            <th>district</th>
+            <th>categorie</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let endroit of endroits">
+            <td>{{endroit.id}}</td>
+            <td>{{endroit.nom}}</td>
+            <td>{{endroit.latitude}}</td>
+            <td>{{endroit.longitude}}</td>
+            <td>{{endroit.district.nom}}</td>
+            <td>{{endroit.categorie.nom}}</td>
+            <td>
+              <button (click)="goToEndroitPage()" class="btn btn-info btn-sm mx-3">Retour</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div id="map" style="height: 400px;"></div>
+    </div>
+  </div>
+</div>

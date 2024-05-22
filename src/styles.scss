@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+// body {
+//   overflow: hidden; /* Hide scrollbars */
+// }
+select:focus,
+select.form-select:focus,
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=checkbox]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[type=checkbox].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+  border-color: rgba(0, 0, 0, 0.6);
+}
+.ngx-toastr {
+  width: 350px !important;
+}
+button.toast-close-button{
+  font-size: 17px;
+}
+.toast-container .ngx-toastr:hover {
+  box-shadow: 0 0 10px #0c0c0c8e !important;
+}
+#toast-container > .toast-error { background-color: #ff453f; }
+#toast-container > .toast-info { background-color: #49beff; }
+#toast-container > .toast-success { background-color: #5db547; }
+#toast-container > .toast-warning { background-color: #ffae1f; }

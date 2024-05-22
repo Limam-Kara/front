@@ -1,0 +1,76 @@
+<div class="card mt-5">
+  <div class="card-header bg-dark">
+    <h2 class="text-white">Categories liste</h2>
+  </div>
+  <div class="card-body">
+    <div class="row mb-3 d-flex justify-content-between">
+      <div class="col-md-5">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            name="search"
+            [(ngModel)]="searchText"
+            (input)="searchCategories()"
+            placeholder="Search by ID or name"
+          >
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-primary" (click)="goToAddCategoriePage()">
+          <i class="bi bi-plus-circle"></i> Add Categorie
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle text-nowrap table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categorie of filteredCategories">
+            <td>{{ categorie.id }}</td>
+            <td>{{ categorie.nom }}</td>
+            <td>
+              <button (click)="updateCategorie(categorie.id)" class="btn btn-info btn-sm mx-3">
+                <i class="bi bi-pencil-square"></i> Update
+              </button>
+              <button (click)="setCategorieToDeleteId(categorie.id)" data-bs-toggle="modal" data-bs-target="#ST" class="btn btn-danger btn-sm mx-3">
+                <i class="bi bi-trash"></i> Delete
+              </button>
+              <button (click)="categorieDetails(categorie.id)" class="btn btn-success btn-sm mx-3">
+                <i class="bi bi-eye"></i> View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="ST" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Supprimer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer cette categorie ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()">Oui</button>
+      </div>
+    </div>
+  </div>
+</div>

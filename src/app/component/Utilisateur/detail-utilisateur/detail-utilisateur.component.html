@@ -1,0 +1,95 @@
+
+  <div class="card mt-5">
+    <div class="card-header bg-dark">
+      <h2 class="text-white">Detail un utilisateur</h2>
+    </div>
+    <div class="card-body">
+      <!-- Première ligne de champs de formulaire -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="ppr">PPR</label>
+            <input type="text" class="form-control" id="ppr" name="ppr" required placeholder="Entrez le PPR" [(ngModel)]="utilisateur.ppr">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="fonction">Fonction</label>
+            <input type="text" class="form-control" id="fonction" name="fonction" required placeholder="Entrez la fonction" [(ngModel)]="utilisateur.fonction">
+          </div>
+        </div>
+      </div>
+
+      <!-- Deuxième ligne de champs de formulaire -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" required placeholder="Entrez le nom" [(ngModel)]="utilisateur.nom">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" required placeholder="Entrez le prénom" [(ngModel)]="utilisateur.prenom">
+          </div>
+        </div>
+      </div>
+
+      <!-- Troisième ligne de champs de formulaire -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="adresse">Adresse</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" required placeholder="Entrez l'adresse" [(ngModel)]="utilisateur.adresse">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="dateDeNaissance">Date de naissance</label>
+            <input type="text" class="form-control" id="dateDeNaissance" name="dateDeNaissance" required placeholder="Entrez la date de naissance" [(ngModel)]="utilisateur.dateDeNaissance">
+          </div>
+        </div>
+      </div>
+
+      <!-- Quatrième ligne de champs de formulaire -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="tel">Téléphone</label>
+            <input type="tel" class="form-control" id="tel" name="tel" required placeholder="Entrez le numéro de téléphone" [(ngModel)]="utilisateur.tel">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="Entrez l'email" [(ngModel)]="utilisateur.email">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group mb-3">
+            <label for="Genre">Genre</label>
+            <input type="tel" class="form-control" id="Genre" name="Genre" required placeholder="Entrez le Genre" [(ngModel)]="utilisateur.genre">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group mb-3">
+            <label for="Role">Role</label>
+            <input type="tel" class="form-control" id="Genre" name="Genre" required placeholder="Entrez le Genre" [(ngModel)]="utilisateur.idRole.nom">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group mb-3">
+            <label for="Role">District</label>
+            <input type="tel" class="form-control" id="District" name="District" required placeholder="Entrez le Genre" [(ngModel)]="utilisateur.district.nom">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer border-top d-flex bg-white py-3">
+      <button type="button" class="btn btn-danger" (click)="goToUtilisateurPage()">Retourner</button>
+    </div>
+  </div>
+
